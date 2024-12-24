@@ -26,12 +26,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-     # 3rd party
-    'rest_framework',
-
     # local
     'tracker.apps.TrackerConfig',
-    'api.apps.ApiConfig',
 ]
 
 MIDDLEWARE = [
@@ -43,12 +39,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
-REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': [
-    'rest_framework.permissions.AllowAny',
-    ]
-}
 
 ROOT_URLCONF = 'django_project.urls'
 
