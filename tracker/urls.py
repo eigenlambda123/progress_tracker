@@ -12,7 +12,7 @@ router.register(r'subject', SubjectViewSet, basename='subject')
 urlpatterns = [
    
     path("", views.dashboard, name='dashboard'),
-    path('log/', views.log_study, name='log_study'),
+    path('log/', views.log_study, name='log-study'),
     path('subjects/', views.subjects, name='subjects'),
 
     # api
