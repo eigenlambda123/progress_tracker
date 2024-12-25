@@ -1,6 +1,6 @@
 from rest_framework import serializers
-from .models import Tracker 
-from .models import StudyLog
+from .models import Tracker, StudyLog, Subject
+
 
 class TrackerSerializer(serializers.ModelSerializer):
     class Meta:
@@ -10,4 +10,9 @@ class TrackerSerializer(serializers.ModelSerializer):
 class StudyLogSerializer(serializers.ModelSerializer):
     class Meta:
         model = StudyLog
+        fields = '__all__'
+
+class SubjectSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Subject
         fields = '__all__'

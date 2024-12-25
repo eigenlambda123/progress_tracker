@@ -4,7 +4,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 from .models import Subject, Tracker, StudyLog
-from .serializers import TrackerSerializer, StudyLogSerializer
+from .serializers import TrackerSerializer, StudyLogSerializer, SubjectSerializer
 
 
 # Views
@@ -41,4 +41,12 @@ class TestAPIView(APIView):
 class StudyLogViewSet(ModelViewSet):
     queryset = StudyLog.objects.all()
     serializer_class = StudyLogSerializer
+
+class TrackerViewSet(ModelViewSet):
+    queryset = Tracker.objects.all()
+    serializer_class = TrackerSerializer
+
+class SubjectViewSet(ModelViewSet):
+    queryset = Subject.objects.all()
+    serializer_class = SubjectSerializer
 
