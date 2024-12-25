@@ -1,0 +1,11 @@
+<!-- templates/tracker/dashboard.html -->
+{% extends '_base.html' %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<h1>Dashboard</h1>
+<ul>
+    {% for log in study_logs %}
+    <li>{{ log.subject }} - {{ log.time_spent }} hours</li>
+    {% endfor %}
+</ul>
+{% endblock %}

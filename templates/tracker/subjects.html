@@ -1,0 +1,11 @@
+<!-- templates/tracker/subjects.html -->
+{% extends '_base.html' %}
+{% block title %}Subjects{% endblock %}
+{% block content %}
+<h1>Subjects</h1>
+<ul>
+    {% for subject in subjects %}
+    <li>{{ subject.name }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

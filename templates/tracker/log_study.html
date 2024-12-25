@@ -1,0 +1,16 @@
+<!-- templates/tracker/log_study.html -->
+{% extends '_base.html' %}
+{% block title %}Log Study Session{% endblock %}
+{% block content %}
+<h1>Log a Study Session</h1>
+<form method="POST">
+    {% csrf_token %}
+    <label for="subject">Subject:</label>
+    <input type="text" name="subject" id="subject" required>
+    <label for="time_spent">Time Spent (hours):</label>
+    <input type="number" name="time_spent" id="time_spent" required>
+    <label for="notes">Notes:</label>
+    <textarea name="notes" id="notes"></textarea>
+    <button type="submit">Log Session</button>
+</form>
+{% endblock %}
