@@ -13,15 +13,16 @@ def register(request):
     return render(request, 'auth/register.html', {'form': form})
 
 
-def user_login(request):
-    if request.method == "POST":
-        form = AuthenticationForm(data=request.POST)
+def login_view(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
-            user = form.get_user()
-            login(request, user)
-            return redirect('dashboard')  # Replace 'dashboard' with your desired redirect URL
+            user = form.get_user()  # Retrieve the user object after validation
+            login(request, user)  # Log the user in
+            return redirect('home')  # Redirect to the home page or a dashboard
     else:
         form = AuthenticationForm()
+
     return render(request, 'auth/login.html', {'form': form})
 
 def user_logout(request):
