@@ -1,11 +1,21 @@
-<!-- templates/tracker/dashboard.html -->
 {% extends '_base.html' %}
+
 {% block title %}Dashboard{% endblock %}
+
 {% block content %}
-<h1>Dashboard</h1>
-<ul>
-    {% for log in study_logs %}
-    <li>{{ log.subject }} - {{ log.time_spent }} hours</li>
-    {% endfor %}
-</ul>
+<div class="container">
+    <h1 class="my-4 text-center">Dashboard</h1>
+    <div class="card">
+        <div class="card-header text-center bg-primary text-white">
+            Study Logs
+        </div>
+        <ul class="list-group list-group-flush">
+            {% for log in study_logs %}
+            <li class="list-group-item">
+                <strong>{{ log.subject }}</strong> - {{ log.time_spent }} hours
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
 {% endblock %}

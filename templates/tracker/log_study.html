@@ -1,16 +1,25 @@
-<!-- templates/tracker/log_study.html -->
 {% extends '_base.html' %}
+
 {% block title %}Log Study Session{% endblock %}
+
 {% block content %}
-<h1>Log a Study Session</h1>
-<form method="POST">
-    {% csrf_token %}
-    <label for="subject">Subject:</label>
-    <input type="text" name="subject" id="subject" required>
-    <label for="time_spent">Time Spent (hours):</label>
-    <input type="number" name="time_spent" id="time_spent" required>
-    <label for="notes">Notes:</label>
-    <textarea name="notes" id="notes"></textarea>
-    <button type="submit">Log Session</button>
-</form>
+<div class="container">
+    <h1 class="my-4 text-center">Log a Study Session</h1>
+    <form method="POST" class="needs-validation" novalidate>
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="subject" class="form-label">Subject</label>
+            <input type="text" name="subject" id="subject" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="time_spent" class="form-label">Time Spent (hours)</label>
+            <input type="number" name="time_spent" id="time_spent" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="notes" class="form-label">Notes</label>
+            <textarea name="notes" id="notes" class="form-control" rows="4"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Log Session</button>
+    </form>
+</div>
 {% endblock %}
