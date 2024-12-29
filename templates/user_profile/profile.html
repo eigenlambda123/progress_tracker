@@ -1,0 +1,17 @@
+{% extends "_base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header">
+            <h2>{{ user.username }}'s Profile</h2>
+        </div>
+        <div class="card-body">
+            <p><strong>Bio:</strong> {{ profile.bio }}</p>
+            <p><strong>Location:</strong> {{ profile.location }}</p>
+            <p><strong>Birth Date:</strong> {{ profile.birth_date }}</p>
+            <a href="{% url 'edit_profile' %}" class="btn btn-primary mt-3">Edit Profile</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
