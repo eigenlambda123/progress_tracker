@@ -3,23 +3,55 @@
 {% block title %}Log Study Session{% endblock %}
 
 {% block content %}
-<div class="container">
-    <h1 class="my-4 text-center">Log a Study Session</h1>
+<div class="container mt-4">
+    <h1 class="my-4 text-center text-dark">Log a Study Session</h1>
+    
     <form method="POST" class="needs-validation" novalidate>
         {% csrf_token %}
+        
+        <!-- Subject Input -->
         <div class="mb-3">
             <label for="subject" class="form-label">Subject</label>
             <input type="text" name="subject" id="subject" class="form-control" required>
+            <div class="invalid-feedback">Please enter a subject.</div>
         </div>
+        
+        <!-- Time Spent Input -->
         <div class="mb-3">
             <label for="time_spent" class="form-label">Time Spent (hours)</label>
             <input type="number" name="time_spent" id="time_spent" class="form-control" required>
+            <div class="invalid-feedback">Please enter the time spent in hours.</div>
         </div>
+        
+        <!-- Notes Textarea -->
         <div class="mb-3">
             <label for="notes" class="form-label">Notes</label>
             <textarea name="notes" id="notes" class="form-control" rows="4"></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Log Session</button>
+        
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-success btn-lg w-100">Log Session</button>
     </form>
 </div>
+
+<!-- Bootstrap JS Validation -->
+<script>
+    (function() {
+        'use strict';
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll('.needs-validation');
+
+        // Loop over them and prevent submission if invalid
+        Array.prototype.slice.call(forms)
+            .forEach(function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+    })();
+</script>
 {% endblock %}

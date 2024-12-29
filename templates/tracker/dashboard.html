@@ -3,19 +3,32 @@
 {% block title %}Dashboard{% endblock %}
 
 {% block content %}
-<div class="container">
-    <h1 class="my-4 text-center">Dashboard</h1>
+<div class="container mt-4">
+    <h1 class="my-4 text-center text-dark">Dashboard</h1>
+    
     <div class="card">
-        <div class="card-header text-center bg-primary text-white">
-            Study Logs
+        <div class="card-header text-center bg-secondary text-white">
+            <h4>Study Logs</h4>
         </div>
-        <ul class="list-group list-group-flush">
-            {% for log in study_logs %}
-            <li class="list-group-item">
-                <strong>{{ log.subject }}</strong> - {{ log.time_spent }} hours
-            </li>
-            {% endfor %}
-        </ul>
+        <div class="card-body">
+            {% if study_logs %}
+            <ul class="list-group list-group-flush">
+                {% for log in study_logs %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <strong>{{ log.subject }}</strong>
+                    <span class="badge bg-success text-white">{{ log.time_spent }} hours</span>
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p class="text-center text-muted">No study logs available yet. Start logging your study time!</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Add a call-to-action button to encourage logging -->
+    <div class="mt-4 text-center">
+        <a href="{% url 'log-study' %}" class="btn btn-primary btn-lg">Log Study Time</a>
     </div>
 </div>
 {% endblock %}
