@@ -18,7 +18,7 @@ services:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-    container_name: postgres_db
+    container_name: postgres_progress_tracker  # Name of the container
 
 volumes:
   postgres_data:
